@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Helloo!</h1>
+    <script>
+        // var, const, let --> 3 ways to declare variables
+
+var name = "Lebron James"
+var numChampionships = 4
+var teammates = ['AD', 'Rondo', 'Westbrook']
+var willLakersWin = false
+
+var sayHi = function(){
+    console.log("hi")
+    return "Hi"
+}
+
+
+function customHello(name){
+    console.log("hello ", name)
+    console.log("num championships is", numChampionships)
+    var secretword = "wazzaaaap"
+    return secretword
+}
+
+
+
+
+
+
+
+// console.log(customHello("lebron"))
+
+
+var student1 = {
+    name: "Chris LaMee",
+    numBelts: 2,
+    homeTeam: "Seahawks"
+}
+
+// console.log(student1.name)
+
+// sayHi()
+
+//scoping---> something (variables and functions) is globally scoped if its not declared inside any function
+
+
+function countToNum(num){ //functions create their own scope for variables declared with var
+    let sum = 0
+    for(let i = 0; i< num; i++){
+        let thing = "this is a thing"
+        sum += i
+        console.log(i)
+    }
+
+    console.log(sum)
+
+    // console.log(' i outside the for loop is:', i)
+
+}
+countToNum(10)
+
+//3 ways to declare variables are: var, let, const
+//all of those above ways to declare variables are globally scoped if they are not inside a function
+//functions create a new scope for "var" declarations
+//for loop and conditionals create a new scope for 'let' and 'const' declarations
+
+    </script>
+</body>
+</html>
