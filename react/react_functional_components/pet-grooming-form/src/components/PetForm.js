@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import styles from './PetForm.module.css';
 
 const PetForm = (props)=>{
     //create a state variable for each input in the form
@@ -11,7 +12,7 @@ const PetForm = (props)=>{
 
     return(
         <>
-            <form>
+            <form className = {styles.petAppointmentForm} >
                 <div className="form-group">
                     <label htmlFor="">Name:</label>
                     <input onChange= {(e)=>{setName(e.target.value)}} type="text" name="name" id="" className="form-control" /> 

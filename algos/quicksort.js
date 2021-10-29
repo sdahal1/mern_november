@@ -59,3 +59,7 @@ const quicksort = (arr, left =0, right =arr.length -1)=>{
 }
 
 console.log(quicksort([7,3,4,9,0,2,5]))
+
+
+
+
