@@ -14,7 +14,7 @@ const partition = (arr, start=0, end = arr.length-1)=>{ //when integrating this 
         i++
     }
     [arr[numless],arr[end]] = [arr[end], arr[numless]]
-
+    console.log(numless)
     return numless
 
 }
