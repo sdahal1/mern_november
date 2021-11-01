@@ -29,8 +29,21 @@ const PetForm = () => {
         //push the formInfo object into my array called list of pets when the form is submitted
         setListofPets([...listofPets, formInfo])
         
+    }
 
 
+    const deleteAppointment = (e,idx)=>{
+        console.log("loggin e-->", e)
+        console.log("deleting appointment for pet at index number -->", idx)
+
+        //need to delete the pet at index number idx
+        let newlistofpets = listofPets.filter((pet,i)=>{
+            return i != idx //return a copy of the original list of pets array but EXCLUDES any pet whose index number does match the pet we clicked delete on
+        })
+        console.log("new list of pets after deleting one-->", newlistofpets)
+
+        //set state to be this new list of pets so we can update our state variable and it deletes a pet from the page
+        setListofPets(newlistofpets)
     }
 
 
@@ -71,14 +84,10 @@ const PetForm = () => {
             </form>
             <hr />
             <h3>All the appointments so far</h3>
-            {/* {% for pet in listofpets %}
-                <div>
-                    Name: {{pet.name}}
-                </div>
-            {% endfor %} */}
+            
 
             {
-                listofPets.map((pet)=>{
+                listofPets.map((pet,i)=>{
                     return(
                     <div style = {{backgroundColor: pet.favColor}} className= {styles.pet}>
                         <p>Name: {pet.name}</p>
@@ -86,6 +95,7 @@ const PetForm = () => {
                         <p>Service: {pet.service}</p>
                         <p>Favorite Color: {pet.favColor}</p>
                         <p><img src={pet.picurl} alt="pet image here" height = "200px" width = "200px"/></p>
+                        <p><button onClick = {(e)=>deleteAppointment(e,i)} className="btn btn-danger">Delete Appointment</button></p>
                         <hr />
                     </div>
                     )
