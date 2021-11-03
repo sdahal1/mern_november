@@ -5,23 +5,8 @@ const CoinsWithAxios = () => {
 
     const [allCoins, setAllCoins] = useState([])
     
-    const getCoinInfo = ()=>{
+    const getCoinInfo = ()=>{ //this function runs only when we press that button to get the coins
         console.log("trying to get the coins")
-        //fetch is used to make an api call to the route inside of fetch() and then when it gets back the data, the .then() functions will run
-        // fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false") //similar to waiting for an amazon package you have to sign off for
-        //   .then((response) => {
-        //     return response.json(); //format it into valid json incase it is not already valid json
-        // }).then(response => {
-        //     //these lines in this block of code will execute only after the response from the api arives
-        //     console.log("response iss->", response); //similar to signing of the package when it arrives
-        //     //put the info from response into our state variable so we can access it outside of the .then()
-        //     setAllCoins(response)
-
-        // }).catch(err=>{
-        //     console.log(err);
-        // });
-
-
         //USING AXIOS IN THIS FILE INSTEAD TO SHOW ANOTHER WAY TO DO THE SAME THING WE DID WITH FETCH
         axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
             .then(response =>{
