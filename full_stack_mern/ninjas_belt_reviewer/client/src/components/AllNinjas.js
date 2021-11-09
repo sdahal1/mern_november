@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import axios from 'axios'
 
-const AllNinjas = () => {
+const AllNinjas = (props) => {
 
     const [allNinjas, setAllNinjas] = useState([])
 
@@ -13,7 +13,7 @@ const AllNinjas = () => {
         })
         .catch(err=>console.log("errrrrr->", err))
 
-    },[])
+    },[props.formSubmitted])
     
 
     return (
