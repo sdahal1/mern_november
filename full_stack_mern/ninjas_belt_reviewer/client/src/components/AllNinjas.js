@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import axios from 'axios'
+import {Link} from "react-router-dom";
 
 const AllNinjas = (props) => {
 
@@ -24,7 +25,7 @@ const AllNinjas = (props) => {
                     return (
                         <div key = {i} className="card">
                             <div className="card-body">
-                                <h4 className="card-title">{ninja.name}</h4>
+                                <h4 className="card-title"><Link to={`/ninjas/${ninja._id}`}>{ninja.name}</Link></h4>
                                 <p className="card-text">
                                     Number of projects: {ninja.numProjects}
                                 </p>
