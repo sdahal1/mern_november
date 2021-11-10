@@ -54,6 +54,12 @@ const NewNinjaForm = (props) => {
                         isVet:false,
                         profilePicUrl:""
                     })
+                    //if theres any existing previous error messages, clear them out too
+                    setFormErrors({
+                        name:"",
+                        numProjects:"",
+                        gradDate:""
+                    })
 
                 }
 

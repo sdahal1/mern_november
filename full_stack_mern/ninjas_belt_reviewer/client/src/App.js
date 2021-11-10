@@ -2,40 +2,38 @@ import React, {useState} from 'react';
 
 import AllNinjas from './components/AllNinjas';
 import NewNinjaForm from './components/NewNinjaForm';
-import OneNinjaDetails from './components/OneNinjaDetails';
+import NinjaDetail from './components/NinjaDetail';
+
 import {
   BrowserRouter,
   Switch,
   Route,
-  Link 
+  Link
 } from "react-router-dom";
 
 function App() {
+  
   const [formSubmitted, setFormSubmitted] = useState(false)
   return (
     <BrowserRouter>
       <div className="App container">
         <h1>Hello Ninjas Belt Reviewer</h1>
-        <Link className= "btn btn-primary" to= "/">Home</Link>
+        <Link to="/" className= "btn btn-primary">Home</Link>
+        
         <Switch>
-          <Route exact path= "/">
+          <Route exact path = "/">
             <NewNinjaForm formSubmitted = {formSubmitted} setFormSubmitted= {setFormSubmitted}/>
             <hr />
 
             <AllNinjas formSubmitted = {formSubmitted}></AllNinjas>
-
           </Route>
 
-          <Route exact path= "/ninjas/:id">
-            <OneNinjaDetails></OneNinjaDetails>
+          <Route exact path = "/ninja/:id">
+            <NinjaDetail/>
           </Route>
-
-          
-
 
         </Switch>
       </div>
-    
     </BrowserRouter>
   );
 }
