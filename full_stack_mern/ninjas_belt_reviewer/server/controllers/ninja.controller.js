@@ -1,5 +1,6 @@
 const Ninja = require("../models/ninja.model")
 
+//these functions below are exported to any file that imports this controller file has access to these functions below
 
 module.exports.helloWorld = (req, res)=>{
     res.json({msg: "hello belt reviewer"})
@@ -14,7 +15,7 @@ module.exports.findAllNinjas = (req,res)=>{
 }
 
 module.exports.createNinja = (req,res)=>{
-    Ninja.create(req.body)
+    Ninja.create(req.body) //req.body represents the information from the form
         .then(newlyCreatedNinja =>{
             res.json({results: newlyCreatedNinja })
         })
@@ -23,7 +24,7 @@ module.exports.createNinja = (req,res)=>{
 
 module.exports.findOneNinja = (req,res)=>{
     console.log("TRYING TO FINDD ONE NINJA!")
-    Ninja.findOne({_id:req.params.id })
+    Ninja.findOne({_id:req.params.id }) //req.params.id represents the id sent through the route. 
         .then(foundNinja =>{
             res.json({results: foundNinja })
         })

@@ -1,7 +1,8 @@
 const mongoose = require("mongoose")
 
 //mongoose connection
-const db_name = "ninjas_beltreviewer_db"
+const db_name = "ninjas_beltreviewer_db"//change this part for each new project
+
 mongoose.connect(`mongodb://localhost/${db_name}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true

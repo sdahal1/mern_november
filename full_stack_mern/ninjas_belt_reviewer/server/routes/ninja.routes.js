@@ -1,8 +1,8 @@
-const NinjaController = require("../controllers/ninja.controller")
+const NinjaController = require("../controllers/ninja.controller") 
 
-
+//these are route that go to a function in our controller
 module.exports = app =>{
-    app.get("/", NinjaController.helloWorld)
+    app.get("/", NinjaController.helloWorld) 
 
     //find random ninja
     app.get("/api/ninjas/random", NinjaController.findRandomNinja)
