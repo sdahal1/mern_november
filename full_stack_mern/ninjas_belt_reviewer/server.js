@@ -11,6 +11,7 @@ app.use(cors()) //this allows the express application (backend) to share informa
 
 // app.use(express.json(), express.urlencoded({extended:true}), cors()) --> you can do this too instead
 
+app.use(express.static("images")) //tell the server where to upload images to
 
 //these imports of mongoose.config and the routes should be below the "app.use() commands above"
 require("./server/config/mongoose.config")

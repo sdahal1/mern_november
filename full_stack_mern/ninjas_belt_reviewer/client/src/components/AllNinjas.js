@@ -48,7 +48,7 @@ const AllNinjas = (props) => {
                                 <p className="card-text">
                                     Number of projects: {ninja.numProjects}
                                 </p>
-                                <img src={ninja.profilePicUrl} alt="picture of ninja" height= "200px" width = "200px" />
+                                <img src={`http://localhost:8000/${ninja.photo}`} alt="picture of ninja" height= "200px" width = "200px" />
                                 <p><button onClick= {(e)=>deleteNinja(ninja._id)} className="btn btn-danger mt-2">Delete {ninja.name}</button> | <Link to= {`/edit/${ninja._id}`}  className="btn btn-info">Edit</Link></p> 
                             </div>
                         </div>

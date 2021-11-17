@@ -19,7 +19,11 @@ const NinjaSchema = new mongoose.Schema({ //creating instructions for a collecti
     },
     profilePicUrl: {
         type: String
+    },
+    photo: {
+        type: String
     }
+
 })
 
 const Ninja = mongoose.model("Ninja", NinjaSchema) //registering the instruction for creating a table above as a table named "Ninja"

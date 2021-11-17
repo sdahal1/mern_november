@@ -11,7 +11,8 @@ const NewNinjaForm = (props) => {
         numProjects:"",
         gradDate:"",
         isVet:false,
-        profilePicUrl:""
+        profilePicUrl:"",
+        photo:""
     })
 
     //to store the form validation errors we get back if form is filled out incomplete
@@ -32,7 +33,13 @@ const NewNinjaForm = (props) => {
                 ...formInfo,
                 [e.target.name]: !formInfo.isVet //toggle the checkbox to true-> false and vice versa
             })
-        }else{
+        }else if(e.target.type==="file"){
+            setFormInfo({
+                ...formInfo,
+                [e.target.name]: e.target.files[0]
+            })
+        }
+        else{
             setFormInfo({
                 ...formInfo,
                 [e.target.name]: e.target.value
@@ -44,7 +51,25 @@ const NewNinjaForm = (props) => {
     //submithandler for when the form submits we send this date to backend to create something new
     const submitHandler = (e)=>{
         e.preventDefault()
-        axios.post("http://localhost:8000/api/ninjas", formInfo)
+
+        const formData = new FormData();
+        formData.append('name', formInfo.name);
+        formData.append('numProjects', formInfo.numProjects);
+        formData.append('gradDate', formInfo.gradDate);
+        formData.append('isVet', formInfo.isVet);
+        formData.append('profilePicUrl', formInfo.profilePicUrl);
+        formData.append('photo', formInfo.photo);
+
+
+
+
+
+        // axios.post("http://localhost:8000/api/ninjas", formData)
+        axios({
+            method:"post",
+            url: "http://localhost:8000/api/ninjas",
+            data: formData
+        })
             .then(response=>{
                 console.log(response)
                 
@@ -83,7 +108,7 @@ const NewNinjaForm = (props) => {
     return (
         <div>
             <h3>Create new Ninja</h3>
-            <form onSubmit= {submitHandler}>
+            <form onSubmit= {submitHandler} enctype='multipart/form-data'>
                 <div className="form-group">
                     <label htmlFor="">Name:</label>
                     <input onChange={changeHandler} type="text" name="name" id="" className="form-control" value= {formInfo.name} />
@@ -108,6 +133,11 @@ const NewNinjaForm = (props) => {
                 <div className="form-group">
                     <label htmlFor="">Is Veteran?</label>
                     <input onChange={changeHandler} type="checkbox" name="isVet" id="" className="form-checkbox" value= {formInfo.isVet} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="">Upload Photo</label>
+                    <input onChange={changeHandler} type="file" accept=".png, .jpg, .jpeg" name="photo"
+            />
                 </div>
                 <input type="submit" value="Create Ninja!" className="btn btn-success mt-3" />
 

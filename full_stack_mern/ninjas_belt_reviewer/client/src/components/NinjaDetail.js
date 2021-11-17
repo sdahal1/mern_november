@@ -46,7 +46,7 @@ const NinjaDetail = () => {
             {/* graduation date is being formatted to look pretty using moment.js library */}
             <p>Graduation Date: {moment(ninjaInfo.gradDate).format('MMMM Do, YYYY')  }  </p>
             <p>Veteran: {ninjaInfo.isVet? "Is Veteran": "Not a veteran"}</p>
-            <p>Profile picture: <img src={ninjaInfo.profilePicUrl} alt="Picture of one Ninja" height="200px" width= "200px"/> </p>
+            <p>Profile picture: <img src={`http://localhost:8000/${ninjaInfo.photo}`} alt="Picture of one Ninja" height="200px" width= "200px"/> </p>
 
             <button onClick= {deleteNinja} className="btn btn-danger">Delete {ninjaInfo.name} </button>
 

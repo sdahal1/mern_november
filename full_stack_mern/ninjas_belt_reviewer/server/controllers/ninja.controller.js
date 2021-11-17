@@ -15,7 +15,12 @@ module.exports.findAllNinjas = (req,res)=>{
 }
 
 module.exports.createNinja = (req,res)=>{
-    Ninja.create(req.body) //req.body represents the information from the form
+    console.log("REQ.FILE IS THIS--->", req.file)
+    const newNinjaData = {
+        ...req.body,
+        photo: req.file.filename
+    }
+    Ninja.create(newNinjaData) //req.body represents the information from the form
         .then(newlyCreatedNinja =>{
             res.json({results: newlyCreatedNinja })
         })
